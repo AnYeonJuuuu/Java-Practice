@@ -1,23 +1,15 @@
-package main;
-import java.util.Scanner;
+
+
 import java.util.Random;
 import java.util.Scanner;
 
-import eventstart.EventStart;
-
-public class Main {
+public class MainOrigin {
 
 	public static void main(String[] args) {
-//		Scanner sc = new Scanner(System.in);	
-//		System.out.println("===== !! 나와 함께할 식물 찾기 !! =====\n** 이벤트 후 만족도 조사 완료 시 100% 경품을 드립니다 **");
-//		System.out.println(" >>> 로그인 : 1번 입력 "
-//				+ "\n >>> 회원가입 : 0번 입력");
-		
-		EventStart  es = new EventStart();
-		es.welcome();
-		
-		Scanner sc = new Scanner(System.in);
-		
+		Scanner sc = new Scanner(System.in);	
+		System.out.println("===== !! 나와 함께할 식물 찾기 !! =====\n** 이벤트 후 만족도 조사 완료 시 100% 경품을 드립니다 **");
+		System.out.println(" >>> 로그인 : 1번 입력 "
+				+ "\n >>> 회원가입 : 0번 입력");
 		int s;
 		s = sc.nextInt();
 		
@@ -48,7 +40,6 @@ public class Main {
 				System.out.println("틀린 비밀번호 입니다. 비밀번호를 다시 입력해주세요.");
 			}continue;
 		}
-		
 		System.out.println();
 		System.out.println("===== 식물 추천 이벤트를 시작합니다 =====");
 		System.out.println("** (1)번 or (2)번중 더 마음에 드는 항목의 번호를 입력해주세요!!");
