@@ -22,7 +22,10 @@ public class Person {
 	
 	//age
 	public void setAge(int age) {
-		this.age = age;
+		if(this.age < age) {
+			this.age = age;
+		}
+		
 	}
 	
 	//나이 알려주는 메소드를 이용해서 age 값 입력 받을 수 있음!

@@ -16,6 +16,8 @@ public class Main {
 		p1.setGender('F');
 		p1.setName("안연주");
 		
+	
+		
 		System.out.println(p1.getAddr());
 		System.out.println(p1.getAge());
 		System.out.println(p1.getBirth());
