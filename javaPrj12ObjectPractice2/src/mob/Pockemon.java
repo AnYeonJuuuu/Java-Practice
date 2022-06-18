@@ -57,7 +57,7 @@ public class Pockemon {
 	//toString
 	@Override
 	public String toString() {
-		return "Pockemon [name = " + name + ", atk = " + atk + ", hp = " + hp + "]";
+		return "Pockemon [이름 = " + name + ", atk = " + atk + ", hp = " + hp + "]";
 	}
 	
 	
