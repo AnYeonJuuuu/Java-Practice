@@ -58,7 +58,18 @@ public class SerSatisfaction {
 		}
 		
 		SerSatisfaction ssf = new SerSatisfaction(ser[1],ser[2],ser[3]);
-		System.out.println(ssf);
+		System.out.println(ssf);//toString 값 출력!!(헷갈림)
+		
+		int t;
+		int l = 0;
+		for( t = 1; t < 4; t++) {
+			
+			if( l < ser[t]) {
+				l = ser[t];
+			}
+		}
+			System.out.println("최고점 :: << "+ l + "점 >> " +"만족도 평가에 참여해주셔서 감사합니다 ^o^");
+		
 	}
 	
 	
