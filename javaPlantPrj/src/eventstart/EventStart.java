@@ -22,17 +22,17 @@ public class EventStart {
 		
 		for(int x=0; x<1;x++)  { //여러 번 반복하고 싶었는데 구현 못함!
 			
-			
-			
-		if( sr == 1 ) {
-				System.out.println("ID을 입력해주세요(한글 또는 영문으로 입력해주세요.)");
-				ID = sc.nextLine();
-				sc.nextLine();
-				  } 
-		
-		if (sr == 0) {
-			System.out.println("회원가입 창으로 이동합니다.");
+			if (sr == 0) {
+				System.out.println("회원가입 창으로 이동합니다.");
+				int join = sc.nextInt();
 				continue;	}
+			else if( sr == 1 ) {
+					System.out.println("ID을 입력해주세요(한글 또는 영문으로 입력해주세요.)");
+					ID = sc.nextLine();
+					sc.nextLine();
+					;
+					  } 
+		
 		
 			
 		for(;;) {

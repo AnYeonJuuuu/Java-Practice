@@ -32,12 +32,12 @@ public class MainOrigin {
 		ssf.Score();
 
 	
-		Gift g = new Gift();//∞Ê«∞√ﬂ√∑ ∏‡∆Æ
-		g.giftment();
+		Gift g = new Gift();
+		g.giftment();//∞Ê«∞√ﬂ√∑ ∏‡∆Æ
 			
 		
 		int b = sc.nextInt();
-		g.giftrandom();
+		g.giftrandom();//∑£¥˝ ∞Ê«∞
 
 	
 			}
