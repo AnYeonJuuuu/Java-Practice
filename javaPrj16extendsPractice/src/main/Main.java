@@ -13,6 +13,7 @@ public class Main {
 		Pokemon pairi = new Pairi();
 		Pokemon turtle = new Turtle();
 		
+		//포켓몬 배열 생성
 		Pokemon[] pArr = new Pokemon[3];
 		pArr[0] = pikachu;
 		pArr[1] = pairi;
