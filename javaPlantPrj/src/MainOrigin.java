@@ -37,7 +37,8 @@ public class MainOrigin {
 			
 		
 		int b = sc.nextInt();
-		g.giftrandom();//·£´ı °æÇ°
+		g.giftran
+		dom();//·£´ı °æÇ°
 
 	
 			}

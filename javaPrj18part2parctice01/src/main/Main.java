@@ -18,10 +18,8 @@ public class Main {
 		
 		//키오스크 사용하여, 주문 내용 얻기
 		Kiosk kiosk = new Kiosk();
-		Order order = kiosk.useKiosk();
-		
-		
-		
+		Order order = kiosk.useKiosk();//타입이 Order 타입
+		kiosk.calc(order); //가격 시간 나오게 함!
 		System.out.println(order);
 		
 		//가격 계산 총 얼마입니다 알려주기

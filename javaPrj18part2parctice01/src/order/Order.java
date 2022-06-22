@@ -1,8 +1,6 @@
 package order;
 
-public class Order {
-	
-	
+public class Order { //주문과 관련된 데이터 클래스 
 
 	public Order(boolean isTakeOut, int dough, int topping, int side, int drink, int price, int time) {
 		this.isTakeOut = isTakeOut;
@@ -25,7 +23,7 @@ public class Order {
 	private int price;
 	private int time;
 	
-	public boolean isTakeOut() {
+	public boolean isTakeOut() { //boolean 타입의 데이터들은 get 안 써도 됨!
 		return isTakeOut;
 	}
 	public void setTakeOut(boolean isTakeOut) {
@@ -58,14 +56,14 @@ public class Order {
 	public int getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void addPrice(int price) {
+		this.price += price;
 	}
 	public int getTime() {
 		return time;
 	}
-	public void setTime(int time) {
-		this.time = time;
+	public void addTime(int time) {
+		this.time += time;
 	}
 	
 	//toString
