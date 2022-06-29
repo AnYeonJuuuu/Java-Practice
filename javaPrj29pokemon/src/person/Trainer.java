@@ -28,7 +28,7 @@ public class Trainer {
 	private final Map<String, Pokemon> pocket = new HashMap<>(); 
 	//해쉬맵 객체 생성 : 포켓에 해쉬 맵이 만들어짐!, 키 밸류 형태로 데이터를 넣어 줄 수 있음
 	//키값으로는 문자열(포켓몬 이름), 밸류값으로는 포켓몬 객체 넣기.
-	// final 키워드 붙이면 재할당 못하도록!!
+	// final 키워드 붙이면 재할당 못하도록!!, 포켓 변수에 다른게 들어갈 수 없게 만듦
 	
 	//method
 	public Pokemon getPokemon(String name) {
