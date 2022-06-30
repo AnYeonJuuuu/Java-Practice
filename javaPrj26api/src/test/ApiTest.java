@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Iterator;
+
 public class ApiTest {
   
 	public void test01() {
@@ -45,7 +47,13 @@ public class ApiTest {
 		System.out.println(result);
 	}
 	
-	
+	public void test04() {
+		String s = "apple samsung/lg google";
+		String[] result = s.split(" ");
+		for(int i = 0;i<result.length;i++) {
+			System.out.println(result[i]);
+		}
+	}
 	
 	
 	

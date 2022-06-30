@@ -30,11 +30,11 @@ public class TestIo {
 //		while((result = fis.read()) != -1) { 
 //			System.out.print((char)result); 
 //		}
-//			
+
 		// 읽어오는 코드 !!
 		
 		// 데이터 읽기 2( 보조스트림 )
-		//버퍼드리더(보조스트림) == 통로 만들기
+		//버퍼드리더(보조스트림) == 통로 만들기(성능이 더 좋아짐!)
 		BufferedReader br = new BufferedReader(new FileReader(f));
 		//버퍼드리더 == 보조스트림, 파일리더== 메인스트림 과 연결하면 더 빠르게 값 읽어옴!!
 		
@@ -48,6 +48,8 @@ public class TestIo {
 		// null값이 나오지 않을 때 까지 한 줄씩 읽어오는 것을 반복.
 			System.out.println(s);
 		}
+		
+		
 		// 사용한 자원 반납
 		br.close();
 		
@@ -73,9 +75,9 @@ public class TestIo {
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		//통로 이용해서 보내기
-		bw.write(str); // str은 그냥 변수명!
-		bw.flush();// 통로에 있던 것들 쭉 밀어줄 수 있음!
-		// 사용한 자원 반납
+		bw.write(str); //.write == 데이터 보내기! , str은 그냥 변수명!
+		bw.flush();// 통로에 걸려 있던 것들 쭉 밀어줄 수 있음!
+		// 스트림을 이용했다면 사용한 자원 반납
 		bw.close();
 		System.out.println("write 완료함");
 	} // 왜 아무것도 안나왔을까? 1) "java" 전달이 잘 안됐음. 2).write == 기존 것을 없애고 덮어 씌워 버리기 때문
