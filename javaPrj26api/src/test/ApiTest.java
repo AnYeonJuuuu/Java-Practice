@@ -3,69 +3,57 @@ package test;
 import java.util.Iterator;
 
 public class ApiTest {
-  
+
 	public void test01() {
 		String str = "Hello world";
-		
-		//charAt : 특정 인덱스의 ‘문자’ 리턴
+
+		// charAt : 특정 인덱스의 ‘문자’ 리턴
 //		char result = str.charAt(0);
-		
-		//compareTo : 사전순으로 비교
+
+		// compareTo : 사전순으로 비교
 //		int result = str.compareTo("Hello world");
-		
-		//concat : 자주 이용함!
+
+		// concat : 자주 이용함!
 //		String result = str.concat("zzz");
-		
-		//substring() : 메소드 오버로딩 인덱스 이용해서 문자열 자름,
+
+		// substring() : 메소드 오버로딩 인덱스 이용해서 문자열 자름,
 //		String result = str.substring(3);
-		//(3) == 3번 인덱스부터 쭉 출력
-		//(3,7) == 3번부터 7번 인덱스 전 까지 출력(3번 이상 7번 미만, 3<= "값" < 7)
-		
-		//lowercase
+		// (3) == 3번 인덱스부터 쭉 출력
+		// (3,7) == 3번부터 7번 인덱스 전 까지 출력(3번 이상 7번 미만, 3<= "값" < 7)
+
+		// lowercase
 		String result = str.toUpperCase();
-		
+
 		System.out.println(result);
 	}
-	
+
 	public void test02() {
-		//StringBuilder, StringBuffer
+		// StringBuilder, StringBuffer
 //		StringBuilder sb = new StringBuilder();
 //		sb.append("zz");
 //		sb.append("abc");
 //		System.out.println(sb);
-		
+
 		StringBuffer sb = new StringBuffer();
 		sb.append("zz");
 		sb.append("abc");
 		System.out.println(sb);
 	}
-	
+
 	public void test03() {
-		//Math
-		
+		// Math
+
 		int result = Math.abs(-77);
 		System.out.println(result);
 	}
-	
+
 	public void test04() {
-		String s = "apple samsung/lg google";
-		String[] result = s.split(" ");
-		for(int i = 0;i<result.length;i++) {
-			System.out.println(result[i]);
-		}
+		String str = "Apple, Kiwi, Strawberry, Banana";
+		String[] result = str.split(",");
+		System.out.println(result[1]);
+//		for (int i = 0; i < result.length; i++) {
+//			System.out.println(result[i]);
+//		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
