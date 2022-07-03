@@ -37,8 +37,8 @@ public class MainOrigin {
 			
 		
 		int b = sc.nextInt();
-		g.giftran
-		dom();//랜덤 경품
+//		g.giftran
+//		dom();//랜덤 경품 >>>?? 갑자기 오류?
 
 	
 			}

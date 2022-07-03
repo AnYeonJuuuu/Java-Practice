@@ -1,20 +1,10 @@
-package member;
+package movie;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-
-public class Member {
-
-	public Member() {
-
-	}
-
-	// 공통적으로 회원가입에 필요한 이름, 성별, 생년월일, 전화번호, 아이디(중복확인),비밀번호
+public class Movie {
 	private String name;
 	private char gender;
 	private int birth;
-	private int phone; 
+	private int phone;
 	private String id;
 	private String pw;
 
@@ -23,18 +13,18 @@ public class Member {
 
 	public String toString() {
 		return "[ 회원 정보 확인 ] " + "\n 아이디 : " + id + "\n 이름 : " + name + "\n 성별 : " + gender + "\n 생년월일 : " + birth
-				+ "\n 전화번호 : " + phone;}
-		
-		
+				+ "\n 전화번호 : " + phone;
+	}
+
 	// 생성자
-	public Member(String name, char gender, int birth, int phone, String id, String pw) {
-		super();
-		this.name = name;
-		this.gender = gender;
-		this.birth = birth;
-		this.phone = phone;
-		this.id = id;
-		this.pw = pw;}
+//	public void Member(String name, char gender, int birth, int phone, String id, String pw) {
+//		super();
+//		this.name = name;
+//		this.gender = gender;
+//		this.birth = birth;
+//		this.phone = phone;
+//		this.id = id;
+//		this.pw = pw;}
 
 	// 게터세터
 	public String getName() {
@@ -53,7 +43,7 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public int getBirth() { 
+	public int getBirth() {
 		return birth;
 	}
 
@@ -85,5 +75,4 @@ public class Member {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-
 }

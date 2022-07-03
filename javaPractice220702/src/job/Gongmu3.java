@@ -2,12 +2,12 @@ package job;
 
 import member.Member;
 
-public class Gongmu extends Member {
+public class Gongmu3 extends Member {
 
-	public Gongmu() {
+	public Gongmu3() {
 		
 	}
-	public Gongmu(String name, char gender, int birth, int phone, String id, String pw,String goalkind) {
+	public Gongmu3(String name, char gender, int birth, int phone, String id, String pw,String goalkind) {
 		super(name, gender, birth, phone, id, pw);
 		this.goalkind = goalkind;
 	}
@@ -16,7 +16,7 @@ public class Gongmu extends Member {
 
 	@Override
 	public String toString() {
-		return "Gongmu [goalkind=" + goalkind + "]";
+		return "Gongmu [ Èñ¸Á Á÷±º =" + goalkind + "]";
 	}
 
 //	public Gongmu(String goalkind) {
