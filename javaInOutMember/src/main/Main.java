@@ -3,7 +3,7 @@ package main;
 
 import employee.Employee;
 import io.IOjoin;
-import login.Login;
+
 
 
 public class Main {
@@ -13,7 +13,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		emp.welcomeEmployee();
 		new IOjoin().joinOut();
-		new Login().login();
+
 		
 	}
 
