@@ -11,7 +11,7 @@ public class Exception4 {
 			System.out.println(0/0); // ArithmeticException 예외발생
 			System.out.println(4);   // 실행 안 됨.
 		} catch (ArithmeticException ae)	{
-//			ae.printStackTrace();
+//			ae.printStackTrace(); // 주석처리 시 세부 내용 안 나옴
 			System.out.println("예외메시지 : " + ae.getMessage());
 		}	// try-catch의 끝
 
