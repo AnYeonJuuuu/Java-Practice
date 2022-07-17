@@ -78,7 +78,7 @@ public class MemberController {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MemberDto md = new MemberDto();
+	
 		
 		try {
 
@@ -96,12 +96,15 @@ public class MemberController {
 
 			while (rs.next()) {
 				
-				
+				MemberDto md = new MemberDto();
 				md.setId(rs.getString("ID"));
 				md.setPwd(rs.getString("PWD"));
 				md.setNick(rs.getString("NICK"));
 				
-				
+				System.out.println(" ");
+				System.out.println("* " + md.getNick() + "님 안녕하세요.");
+			
+		
 			}
 
 		} catch (Exception e) {
@@ -123,11 +126,10 @@ public class MemberController {
 					rs.close();
 			} catch (Exception e) {
 			}
-
 		}
 
-		System.out.println(" ");
-		System.out.println("* " + md.getNick() + "님 안녕하세요.");
+
+
 	}
 
 	public void edit() {
