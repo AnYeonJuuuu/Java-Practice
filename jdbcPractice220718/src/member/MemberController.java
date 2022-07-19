@@ -11,6 +11,7 @@ import util.JDBCTemplate;
 
 public class MemberController {
 
+	Scanner sc = new Scanner(System.in);
 	/*
 	 * 회원가입 아이디, 패스워드, 닉네임 전달 받고 db에 insert
 	 * 
@@ -180,7 +181,28 @@ public class MemberController {
 	 * 5. 실행 결과에 따라, 서비스 로직 실행 (회원정보 수정이 완료되었습니다. -> 메인페이지 보여주기 or 마이페이지로 보내기 ...)
 	 */
 	public void edit() {
-
+		System.out.println("===== 마이페이지 =====");
+		System.out.println("1. 닉네임 변경 2. 비밀번호 변경");
+		String select = sc.nextLine();
+		
+		switch(select) {
+		case "1" : 
+			int result = nickUpdate();
+			if(result > 0) {
+				System.out.println("닉네임 변경 완료");
+			}else System.out.println("닉네임 변경 실패");
+			break;
+		case "2" : 
+			int result1 = pwdUpdate();
+			if(result1 > 0) {
+				System.out.println("비밀번호 변경 완료");
+			}else System.out.println("비밀번호 변경 실패");
+			break;
+			
+			
+		default : System.out.println("그런 숫자 없어요");
+		}
+		
 	} 
 	
 	
@@ -193,6 +215,114 @@ public class MemberController {
 		}
 	}//loginCheck
 
-	
+	public int nickUpdate() {
+		MemberDto dto = nickUpdateView();
 
+		// 커넥션 필요함
+		Connection conn = JDBCTemplate.getConnection();
+		PreparedStatement pstmt = null;
+		
+		// 커넥션 이용해서 sql 실행
+		String sql = "UPDATE MEMBER SET NICK = ? ";
+
+		int result = 0;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getNick());
+			
+
+			result = pstmt.executeUpdate();// executeQuery는 리턴타입이 ResultSet
+			// 실행결과가 숫자로 나오는 sql(=DML UPDATE INSERT DELETE) 이용할 때 = executeUpdate 이용하면 됨!!
+
+			// 실행 결과에 따라서, 커밋 or 롤백
+			if(result > 0) {
+				if(conn != null)JDBCTemplate.commit(conn); //if(conn != null) 쓰는 이유 여러가지 상황에 대한 안전장치
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+		} catch (SQLException e) {
+			JDBCTemplate.rollback(conn);
+			System.out.println("닉네임 수정 중 예외 발생 ! ");
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(conn); // 널체크와 클로즈 처리 한 번에 가능
+			JDBCTemplate.close(pstmt); 
+//			JDBCTemplate.close(rs); <- 회원가입에서는 insert만 했으므로 결과집합 없음.
+		}
+
+		return result;
+
+	}
+	
+	private MemberDto nickUpdateView() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("수정할 닉네임 : ");
+		String nick = sc.nextLine();
+		
+		MemberDto dto = new MemberDto();
+		dto.setNick(nick);
+
+		return dto;
+
+	}
+	
+	public int pwdUpdate() {
+		MemberDto dto = pwdUpdateView();
+
+		// 커넥션 필요함
+		Connection conn = JDBCTemplate.getConnection();
+		PreparedStatement pstmt = null;
+		
+		// 커넥션 이용해서 sql 실행
+		String sql = "UPDATE MEMBER SET PWD = ? ";
+
+		int result = 0;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPwd());
+			
+
+			result = pstmt.executeUpdate();// executeQuery는 리턴타입이 ResultSet
+			// 실행결과가 숫자로 나오는 sql(=DML UPDATE INSERT DELETE) 이용할 때 = executeUpdate 이용하면 됨!!
+
+			// 실행 결과에 따라서, 커밋 or 롤백
+			if(result > 0) {
+				if(conn != null)JDBCTemplate.commit(conn); //if(conn != null) 쓰는 이유 여러가지 상황에 대한 안전장치
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+			
+		} catch (SQLException e) {
+			JDBCTemplate.rollback(conn);
+			System.out.println("비밀번호 수정 중 예외 발생 ! ");
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(conn); // 널체크와 클로즈 처리 한 번에 가능
+			JDBCTemplate.close(pstmt); 
+//			JDBCTemplate.close(rs); <- 회원가입에서는 insert만 했으므로 결과집합 없음.
+		}
+
+		return result;
+
+	}
+	
+	private MemberDto pwdUpdateView() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("수정할 비밀번호 : ");
+		String pwd = sc.nextLine();
+		
+		MemberDto dto = new MemberDto();
+		dto.setPwd(pwd);
+
+		return dto;
+
+	}
+	
 }// class

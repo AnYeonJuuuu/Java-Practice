@@ -30,7 +30,9 @@ public class Main {
 			if(result > 0) System.out.println("회원가입 성공!!!");
 			else System.out.println("회원가입 실패...");
 			break;
-		case "3" : 
+		case "3" :
+			dto = mc.login();
+			mc.loginCheck(dto);
 			mc.edit();
 			break;
 		default : System.out.println("그런 숫자 없어요");
