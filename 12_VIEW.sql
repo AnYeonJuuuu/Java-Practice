@@ -1,0 +1,87 @@
+-- VIEW
+/*
+    <VIEW>
+        SELECT 문을 저장할 수 있는 객체이다.(논리적인 가상 테이블)
+        데이터를 저장하고 있지 않으며 테이블에 대한 SQL만 저장되어 있어 VIEW 접근할 때 SQL을 수행하면서 결과값을 가져온다.
+        
+        [문법]
+            CREATE [OR REPLACE] VIEW 뷰명
+            AS 서브 쿼리;
+            
+        SELECT
+        FROM
+        JOIN ~~
+*/
+
+--한국에서 근무하는 사월들의 사번, 이름, 부서명 ,급여, 국가명
+SELECT EMP_ID, EMP_NAME, DEPT_TITLE, SALARY, NATIONAL_NAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DEPT_CODE = D.DEPT_ID
+JOIN LOCATION L ON D.LOCATION_ID = L.LOCAL_CODE
+JOIN NATIONAL N ON L.NATIONAL_CODE = N.NATIONAL_CODE
+WHERE N.NATIONAL_NAME = '한국'
+;
+
+--일본에서 근무하는 사월들의 사번, 이름, 부서명 ,급여, 국가명
+SELECT EMP_ID, EMP_NAME, DEPT_TITLE, SALARY, NATIONAL_NAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DEPT_CODE = D.DEPT_ID
+JOIN LOCATION L ON D.LOCATION_ID = L.LOCAL_CODE
+JOIN NATIONAL N ON L.NATIONAL_CODE = N.NATIONAL_CODE
+WHERE N.NATIONAL_NAME = '일본'
+;
+
+
+-- 4개 테이블을 한 번에 볼 수 있는 뷰 이용!!
+
+-- VIEW
+CREATE OR REPLACE VIEW V_EMPLOYEE
+AS
+SELECT EMP_ID, EMP_NAME, DEPT_TITLE, SALARY, NATIONAL_NAME
+FROM EMPLOYEE E
+JOIN DEPARTMENT D ON E.DEPT_CODE = D.DEPT_ID
+JOIN LOCATION L ON D.LOCATION_ID = L.LOCAL_CODE
+JOIN NATIONAL N ON L.NATIONAL_CODE = N.NATIONAL_CODE
+;
+
+SELECT *
+FROM V_EMPLOYEE;
+
+--한국에서 근무하는 사월들의 사번, 이름, 부서명 ,급여, 국가명
+SELECT *
+FROM V_EMPLOYEE
+WHERE NATIONAL_NAME = '한국';
+
+-- DML
+COMMIT;
+UPDATE v_employee
+SET SALARY = 999999999
+WHERE EMP_NAME = '선동일';
+
+ -- 뷰를 가지고도 데이터 조작이 가능하기는 함. 뷰를 사용하는 목적이 외부 오픈할 때 이용하므로 데이터 조작 시 이용하지는 않음.
+SELECT * FROM V_EMPLOYEE;
+SELECT * FROM EMPLOYEE;
+ROLLBACK;
+
+-- READ ONLY
+CREATE OR REPLACE VIEW V_DEPT_01
+AS
+SELECT *
+FROM DEPARTMENT
+WITH READ ONLY
+;
+
+SELECT * FROM USER_VIEWS; -- 내가 만든 뷰에 대한 정보를 얻는 코드
+SELECT VIEW_NAME, READ_ONLY FROM USER_VIEWS; -- READ ONLY 칼럼 보는 방법.
+
+
+
+
+
+
+
+
+
+
+
+
