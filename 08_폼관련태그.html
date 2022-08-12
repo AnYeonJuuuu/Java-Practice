@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼관련태그</title>
+</head>
+<body>
+    <h1>폼 관련 태그</h1>
+    <!-- 
+        << 복습 철저히 하기@@ >>
+        <form> 태그 = 클라와 서버 통신 간의 가장 중요한 태그!!!!
+        form 태그는 html에서 사용자가 입력할 수 있는 양식을 제공하는 태그이다.
+        form 태그 내의 <input> 태그들을 통해서 사용자가 입력한 정보를 서버로 넘기면서 요청하는 역할을 한다.
+        
+        * 속성
+        action : 폼 내에 입력된 값들을 전달할 서버에 대한 내용을 기입한다. (어디로 요청 보내는 것)
+        method : get / post 방식으로 전송 방식을 지정한다.
+            <큰 차이 = >
+            get : 서버에 사용자가 입력한 값들을 "URL에 노출" 시켜서 전달하는 방식
+            post : 서버에 사용자가 입력한 값들을 "URL에 노출시키지 않고" 전달하는 방식
+        autocomplete : 이전 입력 내용을 출력하는 기능(default : on, 각 태그별로 지정 가능)
+        
+     -->
+
+     <h3>폼 태그의 기본 구조</h3>
+
+     <!-- ="/kh.com" 맨 앞에 슬래시 꼭 넣어주어야 함!!  -->
+     <form action="" method="get" autocomplete="off">
+        <!-- 
+            name : 나중에서버로 값을 전달할 때, name 속성의 값을 key 값으로 하여 전달 됨.
+            (key=value)
+         -->
+       검색할 내용 : <input type="text" name="sss" size="30">
+
+       <!-- 
+            submit 버튼을 눌렀을 때
+            method 요청 전송 방식으로 action에 지정한 서버로
+            사용자가 입력한 값(key= value)을 전달함.
+        -->
+       <input type="submit" value="검색">
+
+     </form>
+
+     <hr>
+
+     <h4>fieldset, legend</h4>
+     <form action="">
+
+        <!-- 
+            fieldset : 폼 요소를 그룹으로 묶어준다.
+            legend : form 요소에 명칭을 붙인다.
+         -->
+
+         <fieldset>
+            <legend>회원정보</legend>
+
+            <label>아이디 : </label><input type="text"><br>
+            <label>비밀번호 : </label><input type="password"><br>
+         </fieldset>
+
+
+            <br><br>
+        <fieldset>
+            <legend>배송정보</legend>
+
+            <label>수령인 : </label><input type="text"><br>
+            <label>주소 : </label><input type="text"><br>
+
+        </fieldset>
+        
+        <br><br>
+        <input type="submit"> 
+
+     </form>
+
+     <hr>
+
+    <h3> 텍스트와 관련된 input 태그들</h3>
+    <form>
+        <!-- type="text" : 한 쭐 짜리 텍스트를 입력할 수 있는 텍스트 상자 -->
+        <label>아이디 : </label><input type="text" name="userId" size="20" maxlength="30" placeholder="아이디를 입력하세요." required = "required">
+        
+        <h4>*  HTML5중, type = "text" 에서 추가된 기능</h4>
+        <!-- datalist 태그를 사용하여, 텍스트 필드에서 데이터목록 중 값을 선택하도록 만들 수 있음. -->
+        <label for="">색상 : </label><input type="text" name="myColor" list="colorList">
+
+        <!-- 입력 및 선택이 둘 다 가능하게 됨! -->
+        <datalist id="colorList">
+            <option value="black">검정색</option>
+            <option value="white">흰색</option>
+            <option value="red">빨간색</option>
+        </datalist>
+
+        <br><br>
+
+        <!-- type = "password" : 비밀번호 -->
+        <label>비밀번호 : </label>
+        <input type="password" name="userPwd" size="20" maxlength="15" placeholder="비밀번호를 입력하세요" required>
+
+        <br><br>
+        <label>검색 : </label>
+        <input type="search" name="s" size="20" placeholder="검색할 내용을 입력하세요.">
+
+        <label for="">홈페이지 : </label>
+        <input type="url" name="myHomePage" value="http://~~">
+        <br><br>
+
+        <label>이메일</label>
+        <input type="email" name="userEmail" placeholder="이메일">
+
+        <br><br>
+
+        <label for="">전화번호</label>
+        <input type="tel" name="userPhone" placeholder="전화번호를 입력하세요.">
+
+        <br><br>
+        <input type="submit" value="회원가입">
+        <input type="reset" value="reset">
+
+        
+
+        <br><br><br>
+        <hr>
+        <br><br><br>
+
+        <h3>숫자와 관련된 input 태그들</h3>
+        <form action="">수량 : 
+        <input type="number" name="amount" value="0" min="0" max="1000" step="10">
+        </form>
+
+
+        <br><br>
+        <input type="range" name="price" max="1000" value="200" step="200" id="">
+
+    
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>날짜/시간 관련 input 태그</h3>
+    <form action="">
+        <label for="dateInput">date : </label>
+        <input type="date" name="dday" value="2022-09-23" id="dateInput">
+
+        <br><br>
+
+        <label for="">month : </label>
+        <input type="month" name="dday" value="2022-09">
+
+        <br><br>
+
+        <label for="">week : </label>
+        <input type="week" name="dday" >
+
+        <br><br>
+
+        <label for="">time : </label>
+        <input type="time" name="dday" >
+
+        <br><br>
+
+        <label for="">datetime : </label>
+        <input type="datetime-local" name="dday" >
+
+        <br><br>
+
+
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>라디오 버튼과 체크박스</h3>
+
+    <form action="">
+    <!-- radio : 여러 항목 중 하나만 선택하는 경우 
+        name 속성값을 같게 줘야 함.
+    -->
+
+    <input type="radio" name="mbti" id="r01" value="yyyes"><label for="r01">매우 그렇다</label> 
+    <input type="radio" name="mbti" id="r02" value="yes"><label for="r02" >그렇다</label>
+    <input type="radio" name="mbti" id="r03" value="yyyes"><label for="r03">보통이다</label>
+    <input type="radio" name="mbti" id="r04" value="no"><label for="r04">그렇지않다</label>
+    <input type="radio" name="mbti" id="r05" value="nnno"><label for="r05">매우 그렇지 않다</label>
+
+    <!-- 
+        checkbox : 여러항목 중 여러가지 선택 할 경우
+        name 속성값을 같게 주어야 함
+    -->
+    <br><br>
+
+    <fieldset>
+        <legend>취미</legend>
+        <input type="checkbox" name="hobby" value="game" id="h01"><label for="h01">게임</label>
+        <input type="checkbox" name="hobby" value="workout" id="h2"><label for="h02">운동</label>
+        <input type="checkbox" name="hobby" value="sleep" id="h3"><label for="h03">눕기</label>
+        <input type="checkbox" name="hobby" value="book" id="h4"><label for="h04">독서</label>
+        <input type="checkbox" name="hobby" value="breath" id="h5"><label for="h05">숨쉬기</label>
+    </fieldset>
+    <br>
+    <input type="submit" name="" id="">
+    <input type="reset" name="" id="">
+
+
+
+    </form>
+
+    <br><br><br>
+    <hr>
+    <br><br><br>
+
+    <h3>기타 input 태그들</h3>
+    <form action=" test">
+    <label for="">색상 : </label><input type="color" name="myColor" id="">
+    <br><br>
+    <label for="">파일선택 : </label><input type="file" name="f" id="">
+
+    
+    <br><br>
+    <input type="hidden" name="userNo" value="77">
+
+    <!-- input타입버튼과 태그버튼 차이?
+        form 태그 안에서는 input태그 이용해서 타입을 버튼 타입으로 만들어야함
+        태그버튼은 제출과 똑같은 작업을 수행함.(값을 보내버림?)
+        <button type="button">그냥버튼태그</button> 타입을 버튼으로 하면 input버튼과 같은 역할
+     -->
+    <input type="button" value="버튼~" name="" id="">
+    <button type="button">그냥버튼태그</button>
+
+    <input type="submit" name="" id="">
+</form>
+<br><br><br>
+<hr>
+<br><br><br>
+    <h3>여러 값 표현 태그</h3>
+    <form action="">
+    <!-- 
+        select, option
+        사용자가 입력하는 것이 아닌, 옵션 중에서 선택하게 하고 싶을 때 사용
+    -->
+    <label for="">음식</label>
+    <select name="food" >
+        <option value="meat">갈비찜</option>
+        <option value="chicken">치킨</option>
+        <option value="bonza">분짜</option>
+        <option value="taco">타코</option>
+        <option value="roll" selected>월남쌈</option>
+        <option value="shabu">샤브샤브</option>
+    </select>
+
+
+    <br><br>
+    <!-- 
+        textarea : 내용 여러줄을 넣어줄 수 있음 
+        닫는 태그 한 줄로 만들어야 placeholder 입력할 수 있음
+    -->
+    <textarea name="content"  cols="30" rows="5"  style="resize: none;" placeholder="내용을 입력하세요."></textarea>
+
+    <input type="submit" name="" id="">
+    </form>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

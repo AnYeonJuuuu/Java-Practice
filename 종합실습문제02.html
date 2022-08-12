@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>주문관리</h1>
+    <fieldset>
+        <legend>주문자 정보</legend>
+        <label>1. 주문자명 : </label>
+        <input type="text" name="s" size="20" placeholder="name">
+        <br><br>
+        <label>2. email : </label>
+        <input type="email" name="s" size="20" placeholder="ayj7137@naver.com">
+        <br><br>
+        <label>3. 홈페이지 : </label>
+        <input type="url" name="s" size="20" placeholder="http://~~">
+        <br><br>
+
+
+
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>주문정보</legend>
+        <label>상품명 : </label>
+        <input type="text" name="s" size="20" >
+        <br><br>
+        <form action="">주문 수량 : <input type="number" name="amount" value="최소 100" min="100" ></form>
+        <br>
+        <label>할인율 :  </label>
+        <input type="range" name="price" max="1000" value="200" step="200" id="">
+        <br><br>
+        <label>요청사항 :  </label>
+        <textarea name="content" ></textarea>
+    </fieldset>
+    <br>
+    <button>주문하기</button>
+</body>
+</html>

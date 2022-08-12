@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>주문하기</h1>
+    <label>고객명 : </label><input type="text"><br><br>
+    <label>전화번호 : </label><input type="tel"><br><br>
+    <label>E-mail : </label><input type="email"><br><br>
+
+    <fieldset>
+        <legend>피자 사이즈</legend>
+        <input type="radio" name="mbti" id="r01" value="yyyes"><label for="r01">Small</label> 
+        <br><br>
+        <input type="radio" name="mbti" id="r02" value="yes"><label for="r02" >Medium</label>
+        <br><br>
+        <input type="radio" name="mbti" id="r03" value="yyyes"><label for="r03">Large</label>
+        <br><br>
+
+
+    </fieldset>
+
+    <fieldset>
+        <legend>토핑선택</legend>
+        <input type="checkbox" name="hobby" value="game" id="h01"><label for="h01">베이컨</label><br><br>
+        <input type="checkbox" name="hobby" value="workout" id="h2"><label for="h02">치즈</label><br><br>
+        <input type="checkbox" name="hobby" value="sleep" id="h3"><label for="h03">양파</label><br><br>
+        <input type="checkbox" name="hobby" value="book" id="h4"><label for="h04">버섯</label><br><br>
+    </fieldset>
+    <br>
+
+    <label for="">희망 배송 시간 : </label>
+    <input type="time" name="dday" >
+    <br><br>
+    <label>배송 시 요청사항 :  </label>
+    <textarea name="content" rows="2" ></textarea>
+    <br><br>
+    <button>주문하기</button>
+</body>
+</html>
