@@ -9,7 +9,7 @@ public class MemberVo {
 	private String addr;
 	private String hobby;
 	private String enrollDate;
-	private String modyfyDate;
+	private String modifyDate;
 	private String status;
 	
 	public MemberVo() {
@@ -17,7 +17,7 @@ public class MemberVo {
 	}
 	
 	public MemberVo(String no, String id, String pwd, String nick, String addr, String hobby, String enrollDate,
-			String modyfyDate, String status) {
+			String modifyDate, String status) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -26,7 +26,7 @@ public class MemberVo {
 		this.addr = addr;
 		this.hobby = hobby;
 		this.enrollDate = enrollDate;
-		this.modyfyDate = modyfyDate;
+		this.modifyDate = modifyDate;
 		this.status = status;
 	}
 	public String getNo() {
@@ -71,11 +71,11 @@ public class MemberVo {
 	public void setEnrollDate(String enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-	public String getModyfyDate() {
-		return modyfyDate;
+	public String getModifyDate() {
+		return modifyDate;
 	}
-	public void setModyfyDate(String modyfyDate) {
-		this.modyfyDate = modyfyDate;
+	public void setModifyDate(String modifyDate) {
+		this.modifyDate = modifyDate;
 	}
 	public String getStatus() {
 		return status;
@@ -86,7 +86,7 @@ public class MemberVo {
 	@Override
 	public String toString() {
 		return "MemberVo [no=" + no + ", id=" + id + ", pwd=" + pwd + ", nick=" + nick + ", addr=" + addr + ", hobby="
-				+ hobby + ", enrollDate=" + enrollDate + ", modyfyDate=" + modyfyDate + ", status=" + status + "]";
+				+ hobby + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", status=" + status + "]";
 	}
 	
 	

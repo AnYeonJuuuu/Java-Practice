@@ -29,7 +29,7 @@ public class MemberJoinController extends HttpServlet{
 		
 		//데이터 꺼내기
 		String memberId = req.getParameter("memberId");
-		String memberPwd = req.getParameter("memberPwd");
+		String memberPwd = req.getParameter("memberPwd1");
 		String memberNick = req.getParameter("memberNick");
 		String addr = req.getParameter("addr");
 		// hobby는 여러 개 들어올 수 있으므로 코드 이렇게!
@@ -49,6 +49,7 @@ public class MemberJoinController extends HttpServlet{
 		// 화면선택
 		if(result == 1) {
 			//성공
+			req.getSession().setAttribute("alertMsg", "회원가입 성공~");
 			resp.sendRedirect("/semi");
 		}else {
 			//실패

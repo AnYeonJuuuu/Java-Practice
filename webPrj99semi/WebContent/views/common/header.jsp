@@ -1,5 +1,20 @@
+<%@page import="com.kh.semi.member.vo.MemberVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	MemberVo loginMember = (MemberVo)session.getAttribute("loginMember");
+	String alertMsg = (String)session.getAttribute("alertMsg");
+	session.removeAttribute("alertMsg");
+%>    
+
+<script >
+<%if(alertMsg != null){%>
+		
+		alert('<%= alertMsg %>');
+		
+	<%}%>
+</script>
 
 <style>
     /* 공통 */
@@ -20,7 +35,7 @@
     }
     #header-top{
         width: 100%;
-        height: 80%;
+        height: 100%;
     	display: grid;
         grid-template-columns: 2fr 5fr 2fr;
     }
@@ -35,10 +50,13 @@
     }
     #logo-box, #member-box{
         width: 100%;
-        height: 80%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    #member-box{
+    	flex-direction: column;
     }
 
     #navi{
@@ -46,15 +64,16 @@
         height: 100%;
         background-color: black;
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
 
     #navi>div{
-        width: 25%;
+        width: 10vw;
         height: 100%;
-        border: 1px solid gray;
+        display: flex;
+        justify-content: center;
     }
 
 </style>
@@ -67,7 +86,9 @@
             <div></div>
             <div id="logo-box"><img src="/semi/resources/img/logo.JPG" alt="로고이미지" width="80%" height="60%"></div>
             <div id="member-box">
-                <form action="">
+            <%if( loginMember == null){%>
+            		<!-- 폼태그는 로그인 안 되어있을 때만 보이게 -->
+                <form action="/semi/member/login" method="post">
                     <table>
                         <tr>
                             <td>아이디</td>
@@ -83,6 +104,15 @@
                         </tr>
                     </table>
                 </form>
+            	<%}else{%>
+            		<!-- 로그인 된 상태 -->
+            		<span><%= loginMember.getNick() %> 환영합니다.</span>
+            		<div>
+	            		<a href="/semi/member/logout">로그아웃</a>
+	            		&nbsp;
+	            		<a href="/semi/member/mypage">마이페이지</a>
+            		</div>
+            	<%}%>
             </div>
         </div>
 
@@ -97,5 +127,7 @@
 
     </div>
 
+
+	
 
 
