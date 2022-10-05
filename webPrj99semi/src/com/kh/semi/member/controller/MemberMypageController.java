@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.kh.semi.member.service.MemberService;
 import com.kh.semi.member.vo.MemberVo;
@@ -18,7 +19,17 @@ public class MemberMypageController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//화면
 //		resp.sendRedirect("/semi/views/member/mypage.jsp");
-		req.getRequestDispatcher("/views/member/mypage.jsp").forward(req, resp);
+		//로그인 되어 있을 때만 포워딩 되도록!
+		HttpSession s = req.getSession();
+		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
+		if(loginMember != null) {
+			req.getRequestDispatcher("/views/member/mypage.jsp").forward(req, resp);
+		}else {
+			//에러페이지
+			req.setAttribute("msg", "로그인 후 이용해주세요.");
+			req.getRequestDispatcher("/views/common/errorPage.jsp");
+			
+		}
 		
 	}
 	
@@ -59,6 +70,7 @@ public class MemberMypageController extends HttpServlet{
 		//화면선택
 		if(updatedMember != null) {
 			//ok
+			req.getSession().setAttribute("alertMsg", "회원 정보 수정 성공!");
 			req.getSession().setAttribute("loginMember", updatedMember);
 			resp.sendRedirect("/semi");
 			}else {
