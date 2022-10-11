@@ -16,6 +16,12 @@
 	<%}%>
 </script>
 
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
 <style>
     /* 공통 */
     html , body {
@@ -64,7 +70,7 @@
         height: 100%;
         background-color: black;
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
@@ -86,7 +92,7 @@
             <div></div>
             <div id="logo-box">
             	<a href="/semi">
-	            	<img src="/semi/resources/img/logo.JPG" alt="로고이미지" width="80%" height="60%">
+	            	<img src="/semi/resources/img/logo.JPG" alt="로고이미지" width="200px" height="160px">
             	</a>
             </div>
             <div id="member-box">
@@ -124,7 +130,7 @@
             <div id="navi">
                 <div><a href="/semi">HOME</a></div>
                 <div><a href="/semi/notice/list">공지사항</a></div>
-                <div>일반게시판</div>
+                <div><a href="/semi/board/list">일반게시판</a></div>
                 <div>사진게시판</div>
             </div>
         </div>

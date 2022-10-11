@@ -23,6 +23,8 @@ public class MemberMypageController extends HttpServlet{
 		HttpSession s = req.getSession();
 		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
 		if(loginMember != null) {
+			// 그냥 화면 보여주는 것이므로 포워딩 이용했음!
+			// 브라우저 주소창에 주소 그대로 나오는게 아니였으면 해서!
 			req.getRequestDispatcher("/views/member/mypage.jsp").forward(req, resp);
 		}else {
 			//에러페이지
