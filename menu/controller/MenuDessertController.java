@@ -22,7 +22,7 @@ public class MenuDessertController extends HttpServlet{
     	
     	//회면선택
     	req.setAttribute("voList", voList);
-    	req.getRequestDispatcher("/views/menu/desert.jsp").forward(req, resp);
+    	req.getRequestDispatcher("/views/menu/dessert.jsp").forward(req, resp);
     	
     }
 
