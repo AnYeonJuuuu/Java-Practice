@@ -63,7 +63,7 @@
                     
                     <!-- 3 -->
                     <div id="prod-btn">
-                        <div style="border-top: 1px solid black;  margin-top: 30px;"></div>
+                        <div style="border-top: 1px solid black;  margin-top: 50px;"></div>
                         <button id="btn" type="button" class="btn btn-warning">
                             <label id="re-btn" style="font-size: large;">비법 퍼가기</label>
                         </button>

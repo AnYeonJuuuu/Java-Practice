@@ -6,6 +6,7 @@ import java.util.List;
 import com.kh.cook.common.JDBCTemplate;
 import com.kh.cook.menu.dao.MenuDao;
 import com.kh.cook.menu.vo.MenuVo;
+import com.kh.cook.product.vo.ProductVo;
 
 import oracle.net.nt.ConnectDescription;
 
@@ -38,6 +39,16 @@ public class MenuService {
 		return vo;
 		
 		
+	}
+
+	public List<ProductVo> selectProdList(String no) {
+		Connection conn = JDBCTemplate.getConnection();
+		
+		List<ProductVo> prodList = new MenuDao().selectProdList(conn, no);
+		
+		JDBCTemplate.close(conn);
+		
+		return prodList;
 	}
 
 }
