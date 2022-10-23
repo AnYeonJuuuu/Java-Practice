@@ -160,4 +160,52 @@ public class MenuDao {
 		
 	}
 
+
+	// 추천순
+	public List<MenuVo> selectRecommList(Connection conn) {
+		String sql = "SELECT * FROM MENU ORDER BY RECOMMEND DESC";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<MenuVo> recommList = new ArrayList<MenuVo>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String recipe = rs.getString("RECIPE");
+				String menuProd = rs.getString("MENU_PROD");
+				String cal = rs.getString("CAL");
+				String recommend = rs.getString("RECOMMEND");
+				String menuCate_no = rs.getString("MENU_CATE_NO");
+				String menuName = rs.getString("MENU_NAME");
+				String menuInfo = rs.getString("MENU_INFO");
+				String imgPath = rs.getString("IMG_PATH");
+				
+				MenuVo recommVo = new MenuVo();
+				recommVo.setRecipe(recipe);
+				recommVo.setMenuProd(menuProd);
+				recommVo.setCal(cal);
+				recommVo.setRecommend(recommend);
+				recommVo.setMenuCateNo(menuCate_no);
+				recommVo.setMenuName(menuName);
+				recommVo.setMenuInfo(menuInfo);
+				recommVo.setImgPath(imgPath);
+				
+				recommList.add(recommVo);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rs);
+		}
+		
+		return recommList;
+		
+	}
+
+
 }
