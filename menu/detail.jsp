@@ -11,6 +11,8 @@
 <head>
 <meta charset="UTF-8">
 <title>cookTeacher</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" defer src="/cookTeacher/resources/js/menu/detail.js"></script>
 <%
 	MenuVo vo = (MenuVo)request.getAttribute("vo");
 	List<ProductVo> prodList = (List<ProductVo>)request.getAttribute("prodList");
@@ -20,7 +22,7 @@
 <link rel="stylesheet" href="/cookTeacher/resources/css/header.css">
 <link rel="stylesheet" href="/cookTeacher/resources/css/menu/detail.css">
 <link rel="stylesheet" href="/cookTeacher/resources/css/footer.css">
-
+<script src=""></script>
 
 </head>
 <body>
@@ -59,7 +61,9 @@
                             <button id="btn-title" type="button" class="btn btn-warning">
                                 <label id="re-btn" style="font-size: large;">쿡선생의 비법</label>
                             </button>
+                        
                         </div>
+                        
                         
                         <script type="text/javascript">
                             
@@ -113,76 +117,51 @@
                     <div id="prod-btn" >
                         <div style="border-top: 1px solid black; "></div>
 	                    
-                        <button id="btn" type="button" class="btn btn-warning">
-                            <label id="re-btn" style="font-size: large;">비법 퍼가기</label>
-                        </button>
+                   <button id="btn" type="button" class="btn btn-warning" onclick="cartCheck()">
+                        <label class="re-btn" style="font-size: large;">비법 퍼가기</label>
+                        <label class="re-btn-click">퍼가요~♡</label>
+                   </button>
+
                         
+                        <div id="prod-ment" >* 장바구니에 담을 재료를 선택해주세요. 
+                        <br> <br>
+                        <input type='checkbox' name='product' value='selectall' onclick='selectAll(this)' style="justify-content: ;">모두 선택
+                        </div>
                     </div>
                     
          
 
-                    <div id="prod-img" style="width: 100%; height: 100%;">
+                    <div id="prod-img" style="width: 100%; height: 650px;">
                     
-                    <%for(int i = 0; i <prodList.size(); ++i ){%>
+                    
+                    <%for(int i = 0; i < prodList.size(); i++ ){%>
                     
                         <div class="prd-all">
                             <div class="product">
                                 <a href="">
-                                    <img src="/cookTeacher/resources/img/product/<%=prodVo.getImgPath()%>" alt="식재료게시판담당" width="100%" height="100%">
+                                    <img src="/cookTeacher/resources/img/product/<%=prodList.get(i).getImgPath() %>" alt="식재료게시판담당" width="100%" height="100%">
                                 </a>
+                                
                             </div>    
-                            <div class="prod-price">
-                                <input type="checkbox" width="50px" height="50px"><%=prodVo.getName()%> / <%=prodVo.getWeight()%>
-                                <pre><%=prodVo.getPrice()%></pre>
+                            <div style="margin-top : 10px" class="prod-price">
+                                <input type="checkbox" name="product"><%=prodList.get(i).getName() %> / <%=prodList.get(i).getWeight() %>
+                                <pre style="margin-bottom: 10px"><%=prodList.get(i).getPrice() %>원</pre>
                             </div>
                         </div>
                     		
                     <%} %>
-                        <!-- ------------------------------------------------------ -->
-                        <div class="prd-all">
-                            <div class="product">
-                                <a href="">
-                                    <img src="/cookTeacher/resources/img/product/banana.png" alt="식재료게시판담당" width="100%" height="100%">
-                                </a>
-                            </div>    
-                            <div class="prod-price">
-                                <input type="checkbox" width="50px" height="50px">바나나 / 500g
-                                <pre>3,500</pre>
-                            </div>
-                        </div>
-                        
-                       <div class="prd-all">
-                            <div class="product">
-                                <a href="">
-                                    <img src="/cookTeacher/resources/img/product/banana.png" alt="식재료게시판담당" width="100%" height="100%">
-                                </a>
-                            </div>    
-                            <div class="prod-price">
-                                <input type="checkbox" width="50px" height="50px">바나나 / 500g
-                                <pre>3,500</pre>
-                            </div>
-                        </div>
 
-						<!-- -------- -->		
+					
 
-
-                        
-
-                    
                 </div>
             </div>
 
-                   
-                   
-    
-
-
 
             </div>
                 
                 
                 
-                <br><br><br><br>
+                
                 
             </main>
             <!-- 인클루드 == 메인보다 밖에 있어야 함, 컨테이너 안에 있어야 함!-->
