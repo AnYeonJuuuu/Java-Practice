@@ -15,26 +15,27 @@
         <%@include file="/views/common/header.jsp" %>
        <div id="container">
         	<main>
+                <div><a href="<%=root %>/menu/write" >(관리자)레시피 추가</a></div>
     
             <div id="recipe-middle">
                 <div id="resipe" >레시피</div>
                 <hr width="60%" style="margin-bottom: 10px; margin-top: 0px;">
                     <div id="category">
-                        <a href="<%=root %>/views/menu/korean.jsp"> 한식  </a>
+                        <a href="<%=root %>/menu/korean"> 한식  </a>
                         <label for="">  |  </label>
-                        <a href="<%=root %>/views/menu/banchan.jsp"> 반찬 </a>
+                        <a href="<%=root %>/menu/banchan"> 반찬 </a>
                         <label for="">  |  </label>
-                        <a href="<%=root %>/views/menu/japanese.jsp"> 일식 </a>
+                        <a href="<%=root %>/menu/japanese"> 일식 </a>
                         <label for="">  |  </label>
-                        <a href="<%=root %>/views/menu/chinese.jsp"> 중식 </a>
+                        <a href="<%=root %>/menu/chinese"> 중식 </a>
                         <label for="">  |  </label>
-                        <a href="<%=root %>/views/menu/westren.jsp"> 양식 </a>
+                        <a href="<%=root %>/menu/western"> 양식 </a>
                         <label for="">  |  </label>
                         <a href="<%=root %>/menu/dessert"> 디저트 </a>
                     </div>
                 <hr width="60%" style="margin-top: 10px; margin-bottom: 50px">
                 
-                    <div class="cate-name"><a href="<%=root %>/views/menu/korean.jsp">- 한식 -</a></div>
+                    <div class="cate-name"><a href="<%=root %>/menu/korean">- 한식 -</a></div>
                     <div class="recipe-menu-area">
                     <div>
                         <a href="<%=root %>/menu/detail?no=1">
@@ -62,7 +63,7 @@
                 </div>
 
                 <!-- ------- -->
-                <div class="cate-name"><a href="<%=root %>/views/menu/banchan.jsp">< 반찬 ></a></div>
+                <div class="cate-name"><a href="<%=root %>/menu/banchan">< 반찬 ></a></div>
                 <div class="recipe-menu-area">
                 <div>
                     <a href="<%=root %>/menu/detail?no=11">
@@ -88,7 +89,7 @@
                 </div>
 
                 <!-- ------- -->
-                <div class="cate-name"><a href="<%=root %>/views/menu/westren.jsp">< 일식 ></a></div>
+                <div class="cate-name"><a href="<%=root %>/menu/japanese">< 일식 ></a></div>
                 <div class="recipe-menu-area">
                 <div>
                     <a href="<%=root %>/menu/detail?no=21">
@@ -113,7 +114,7 @@
                 </div>
                 </div>
                 <!-- ------- -->
-                <div class="cate-name"><a href="<%=root %>/views/menu/chinese.jsp">< 중식 ></a></div>
+                <div class="cate-name"><a href="<%=root %>/menu/chinese">< 중식 ></a></div>
                 <div class="recipe-menu-area">
                 <div>
                     <a href="<%=root %>/menu/detail?no=31">
@@ -138,7 +139,7 @@
                 </div>
                 </div>
 
-                <div class="cate-name"><a href="<%=root %>/views/menu/japanese.jsp">< 양식 ></a></div>
+                <div class="cate-name"><a href="<%=root %>/menu/western">< 양식 ></a></div>
                 <div class="recipe-menu-area">
                 <div>
                     <a href="<%=root %>/menu/detail?no=41">
