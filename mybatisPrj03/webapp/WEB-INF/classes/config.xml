@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 현재 공장을 세우기위해 필요한 것들 작성 -->  
+<configuration>
+
+	<!-- 3. 공장 자체 설정 : settings => 위쪽에 위치해있어야 configuration 오류가 안 남!!-->
+	<!-- null값에 대한 처리, 칼럼명을 카멜케이스로 자동으로 바꿔주는 설정 : 마이바티스 settings 문서 참조! -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+		<!-- 별칭 등록 -->
+	<typeAliases >
+		<typeAlias type="com.kh.app.board.vo.BoardVo" alias="BoardVo"/>
+	</typeAliases>
+
+	<!-- 세션 객체 만들기(db연결 : db conn pool 설정, db정보, url , username, password, autocommint) -->
+	<!-- id dev01의 정보를 가지고 db 연결 -->
+	<environments default="dev01">
+		<environment id="dev01">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+				<property name="username" value="C##MYBATIS"/>
+				<property name="password" value="MYBATIS"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 2. sql관련 설정 -->
+	<mappers>
+		<mapper resource="/sql/board-mapper.xml"/>
+	</mappers>
+	
+
+	
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
